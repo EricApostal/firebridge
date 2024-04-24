@@ -23,13 +23,17 @@ void main() async {
   // We listen to the onMessageCreate stream which emits an event when the
   // client receives a message.
   client.onMessageCreate.listen((event) async {
-    if (event.message.content.startsWith('!ping')) {
+    if (event.message.content.startsWith('!pingasdasd')) {
       // Send a message with the content "Pong!", replying to the message that
       // we received.
-      await event.message.channel.sendMessage(MessageBuilder(
-        content: 'Pong!',
-        replyId: event.message.id,
-      ));
+      // await event.message.channel.sendMessage(MessageBuilder(
+      //   content: 'Pong!',
+      //   replyId: event.message.id,
+      // ));
+      print("recieved");
+      if (event.guild != null) {
+        print(event.guild!.manager.get(event.guild!.id));
+      }
     }
   });
 }

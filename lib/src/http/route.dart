@@ -317,4 +317,7 @@ extension RouteHelpers on HttpRoute {
 
   /// Adds the [`bulk-ban`](https://discord.com/developers/docs/resources/guild#bulk-guild-ban) part to this [HttpRoute].
   void bulkBan() => add(HttpRoutePart('bulk-ban'));
+
+  /// Adds the settings part to this [HttpRoute].
+  void settings() => add(HttpRoutePart('settings'));
 }
