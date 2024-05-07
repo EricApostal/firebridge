@@ -44,12 +44,7 @@ class GuildManager extends Manager<Guild> {
   @override
   Guild parse(Map<String, Object?> raw) {
     final id = Snowflake.parse(raw['id']!);
-    print("guild parse called!");
-    // print url
-    for (var key in raw.keys) {
-      print("$key: ${raw[key]}");
-    }
-
+    // this might be useful for extending functionality for user accounts
     return Guild(
       id: id,
       manager: this,
