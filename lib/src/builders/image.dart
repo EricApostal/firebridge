@@ -1,4 +1,6 @@
 import 'dart:convert';
+import 'package:nyxx_self/src/errors.dart';
+import 'package:flutter/foundation.dart';
 import 'dart:io';
 
 import 'package:path/path.dart' as p;
@@ -16,6 +18,10 @@ class ImageBuilder {
   ImageBuilder.gif(this.data) : format = 'gif';
 
   static Future<ImageBuilder> fromFile(File file, {String? format}) async {
+    if (kIsWeb) {
+      throw JsDisabledError('ImageBuilder.fromFile');
+    }
+
     format ??= p.extension(file.path);
 
     const formats = {
